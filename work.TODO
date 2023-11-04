@@ -1,2 +1,5 @@
 ✔ Fix problem when forwarding ref in typing @done(23-11-04 16:51)
 ☐ Continue with handling onChangeHandler because the input is updating itself
+☐ Add icon to bottom navigator
+☐ Testing with jest
+☐ Up to github
