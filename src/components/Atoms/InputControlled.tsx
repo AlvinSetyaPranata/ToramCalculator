@@ -1,15 +1,33 @@
 import { StyledComponent } from "nativewind";
-import { View, TextInput } from "react-native";
+import { View, TextInput, NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
 import InputPropsType from "../../types/components/Atoms/InputControlled";
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 
 
-const Input = forwardRef<TextInput, InputPropsType>((props, ref) =>  {
+// const InputControlled = forwardRef<TextInput, InputPropsType>((props, ref) =>  {
+    
+//     return (
+//         <View>
+//             <TextInput keyboardType={props.type} editable={!props.readonly} ref={ref}/>
+//         </View>
+//     )
+// })
+
+// export default InputControlled
+
+
+export default function InputControlled(props: InputPropsType): JSX.Element {
+    const [value, setValue] = useState<string>("")
+
+    const onChangeHandler = (newValue: string) => {
+        setValue(newValue)
+        props.onChangeValue!(newValue)
+    }
+
     return (
         <View>
-            <TextInput editable={!props.readonly} ref={ref} />
+            <TextInput value={value} onChangeText={onChangeHandler} keyboardType={props.type} editable={!props.readonly} />
         </View>
     )
-})
+}
 
-export default Input
