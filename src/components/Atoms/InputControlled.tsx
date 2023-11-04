@@ -17,16 +17,11 @@ import { forwardRef, useState } from "react";
 
 
 export default function InputControlled(props: InputPropsType): JSX.Element {
-    const [value, setValue] = useState<string>("")
-
-    const onChangeHandler = (newValue: string) => {
-        setValue(newValue)
-        props.onChangeValue!(newValue)
-    }
 
     return (
         <View>
-            <TextInput value={value} onChangeText={onChangeHandler} keyboardType={props.type} editable={!props.readonly} />
+            <StyledComponent className="rounded-md border-2 border-gray-300" value={props.value} onChangeText={props.setter} keyboardType={props.type} editable={!props.readonly} component={TextInput} />
+            {/* <TextInput value={value} onChangeText={onChangeHandler} keyboardType={props.type} editable={!props.readonly} /> */}
         </View>
     )
 }

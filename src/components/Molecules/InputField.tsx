@@ -5,7 +5,7 @@ import { PropsWithChildren } from "react"
 
 
 export default function InputField(props: PropsWithChildren<InputFieldPropsType>) {
-    const className = `w-full rounded-md border-2 border-gray-300 ${props.className}`
+    const className = `w-full border-gray-30 my-4`
 
     return (
         <StyledComponent className={className} component={View}>
