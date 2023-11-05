@@ -7,6 +7,7 @@ import { useState } from "react";
 
 
 export default function Home() {
+    const [childValue, setChildValue] = useState<string>("")
     const [value, setValue] = useState<string>("")
 
     const CAP_LEVEL = 270
@@ -25,7 +26,7 @@ export default function Home() {
 
 
     const onPressedHandler = () => {
-        const current_level = parseInt(value)
+        const current_level = parseInt(childValue)
         
         if (current_level > CAP_LEVEL) {
             Alert.alert("Error", "Level tidak boleh lebih dari 270")
@@ -41,7 +42,7 @@ export default function Home() {
         <SafeAreaView>
             <StyledComponent className="px-4 box-border h-full border-none justify-center" component={View}>
                 <InputField className="my-4" label="Your Level">
-                    <InputControlled type="numeric" setter={setValue}/>
+                    <InputControlled type="numeric" setter={setChildValue}/>
                 </InputField>
 
                 <InputField className="my-4" label="SP Gained">
