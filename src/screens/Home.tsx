@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { InputControlled, Button } from "../components/Atoms";
 import InputField from "../components/Molecules/InputField";
 import { useState } from "react";
+import { getDivisibleNumberLength } from "../utils/calculation";
 
 
 export default function Home() {
@@ -14,14 +15,10 @@ export default function Home() {
 
 
     const calculate = (level: number): number => {
-        // find level that can be devide by 5 because it's 2 * level + 5        
-        if (level % 5 == 0) {
-            level = 2 * level + 5
-        } else {
-            level *= 2
-        }
+        const extraLevelPointTotal = getDivisibleNumberLength(1, level, 5)
+        const totalPointGained = (2 * level) + extraLevelPointTotal
 
-        return level
+        return totalPointGained
     }
 
 
@@ -45,7 +42,7 @@ export default function Home() {
                     <InputControlled type="numeric" setter={setChildValue}/>
                 </InputField>
 
-                <InputField className="my-4" label="SP Gained">
+                <InputField className="my-4" label="Stat Point Gained">
                     <InputControlled value={value} readonly={true} />
                 </InputField>
                 <Button onClick={onPressedHandler} text="Find" />
