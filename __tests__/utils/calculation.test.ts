@@ -33,18 +33,12 @@ import { getDivisibleNumberLength, getLastDivisibleNumber } from '../../src/util
 // })
 
 
-describe('getAdditionalPoint', () => {
-    // test('Status Point', () => {
-    //     const from_ = 1
-    //     const level = 35
-    //     const firstDivisibleNumber = getFirstDivisibleNumber(from_, 5) / 5
-    //     const lastDivisibleNumber = getLastDivisibleNumber(level, 5) / 5
-    //     const termLength = getDivisibleNumberLength(from_, level, 5)
+describe('testPoint', () => {
+    test('Status Point', () => {
+        const from_ = 1
+        const level = 25
 
-    //     console.log(firstDivisibleNumber)
-    //     console.log(lastDivisibleNumber)
+        expect((5 * getDivisibleNumberLength(1, level, 5)) - (5 * getDivisibleNumberLength(1, level, 10))).toBe(15)
+    })
 
-    //     expect(getSumConsecutiveNumber(firstDivisibleNumber, lastDivisibleNumber, 1, termLength)).toBe(28)
-
-    // })
 })
