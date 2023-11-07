@@ -15,10 +15,12 @@ export default function Home() {
 
 
     const calculate = (level: number): number => {
-        const extraLevelPointTotal = getDivisibleNumberLength(1, level, 5)
-        const totalPointGained = (2 * level) + extraLevelPointTotal
+        let total = 0
+        const additionalPoint = (5 * getDivisibleNumberLength(1, level, 5)) - (5 * getDivisibleNumberLength(1, level, 10))
 
-        return totalPointGained
+        total = level * 2
+
+        return total + additionalPoint
     }
 
 
@@ -29,6 +31,11 @@ export default function Home() {
             Alert.alert("Error", "Level tidak boleh lebih dari 270")
         } else if (current_level < 0) {
             Alert.alert("Error", `Level mulai dari 1 mas ^-^ bukan ${current_level}`)
+        }
+
+        if (!current_level) {
+            setValue("")
+            return
         }
 
         setValue(calculate(current_level).toString())

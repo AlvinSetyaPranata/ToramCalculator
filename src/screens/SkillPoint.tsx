@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import InputField from "../components/Molecules/InputField";
 import { Button, InputControlled } from "../components/Atoms";
 import { useState } from "react";
+import { getLastDivisibleNumber } from "../utils/calculation";
 
 
 export default function SkillPoint() {
@@ -15,14 +16,11 @@ export default function SkillPoint() {
 
     const calculate = (level: number): number => {
         let point = 0;
+        const lastDivisibleNumber = getLastDivisibleNumber(level, 5) / 5 - 1
 
-        // every 5 and 10 level will grants additional point which is +1 
-        if (level % 5 == 0) {
-            point = level * 1 + 1
-        } else {
-            point = level * 1
-        }
-
+        point = (level * 1 + 1) + lastDivisibleNumber
+       
+        
         return point
     }
 
