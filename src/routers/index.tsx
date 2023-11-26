@@ -3,6 +3,7 @@ import Home from "../screens/Home";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet } from "react-native";
 import SkillPoint from "../screens/SkillPoint";
+import Api from "../screens/Api";
 
 
 
@@ -14,6 +15,7 @@ export default function Routers(): JSX.Element {
             <Tab.Navigator>
                 <Tab.Screen name="Status Point" component={Home} options={{tabBarIconStyle: style.bottomBarIcon}}/>
                 <Tab.Screen name="Skill Point" component={SkillPoint} options={{tabBarIconStyle: style.bottomBarIcon}}/>
+                <Tab.Screen name="Api Test" component={Api} options={{tabBarIconStyle: style.bottomBarIcon}}/>
             </Tab.Navigator>
         </NavigationContainer>
     )

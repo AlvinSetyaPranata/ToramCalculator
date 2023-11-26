@@ -1,4 +1,4 @@
-import { getDivisibleNumberLength, getLastDivisibleNumber } from '../../src/utils/calculation';
+import { getDivisibleNumberLength } from '../../src/utils/calculation';
 
 
 
@@ -42,3 +42,4 @@ describe('testPoint', () => {
     })
 
 })
+
