@@ -49,7 +49,7 @@ export default function Home() {
                     <InputControlled type="numeric" setter={setChildValue}/>
                 </InputField>
 
-                <InputField className="my-4" label="Stat Point Gained">
+                <InputField className="my-4" label="Status Point Gained">
                     <InputControlled value={value} readonly={true} />
                 </InputField>
                 <Button onClick={onPressedHandler} text="Find" />
